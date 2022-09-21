@@ -39,8 +39,11 @@ namespace DeviceManagement_WebApp
             services.AddControllersWithViews();
             services.AddRazorPages();
 
+            // Fixing dependency injection errors:
             services.AddTransient(typeof(IGenericRepository<>), typeof(GenericRepository<>));
             services.AddTransient<ICategoryRepository, CategoryRepository>();
+            services.AddTransient<IDeviceRepository, DeviceRepository>();
+            services.AddTransient<IZoneRepository, ZoneRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -10,9 +10,9 @@ namespace DeviceManagement_WebApp.Repository
         {
         }
 
-        public Category GetMostRecentCategory()
+        /*public Category GetMostRecentCategory()
         {
             return _context.Category.OrderByDescending(category => category.DateCreated).FirstOrDefault();
-        }
+        }*/
     }
 }
