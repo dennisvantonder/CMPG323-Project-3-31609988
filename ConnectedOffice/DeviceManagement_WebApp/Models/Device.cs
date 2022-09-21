@@ -20,7 +20,7 @@ namespace DeviceManagement_WebApp.Models
         public Guid ZoneId { get; set; }
         [DisplayName("Status")]
         public string Status { get; set; }
-        [DisplayName("IsActive")]
+        [DisplayName("Is Active")]
         public bool IsActive { get; set; }
         [DisplayName("Date Created")]
         public DateTime DateCreated { get; set; }

@@ -10,9 +10,9 @@ namespace DeviceManagement_WebApp.Repository
         {
         }
 
-        public Zone GetMostRecentZone()
+        /*public Zone GetMostRecentZone()
         {
             return _context.Zone.OrderByDescending(zone => zone.DateCreated).FirstOrDefault();
-        }
+        }*/
     }
 }
