@@ -5,7 +5,7 @@
 }
 
 <h1>Categories
-    <a asp-action="Create">
+    <a asp-action="Create" title="Create new Category">
         <img src="~/images/create.png" style="height:30px; width:30px; position:relative; top:-2px" />
     </a>
 </h1>
@@ -40,17 +40,17 @@
                 @Html.DisplayFor(modelItem => item.DateCreated)
             </td>
                 <td>
-                    <a asp-action="Edit" asp-route-id="@item.CategoryId">
+                    <a asp-action="Edit" asp-route-id="@item.CategoryId" title="Edit Item">
                         <img src="~/images/edit.png" style="height:20px;width:20px;" />
                     </a>
                 </td>
                 <td>
-                    <a asp-action="Details" asp-route-id="@item.CategoryId">
+                    <a asp-action="Details" asp-route-id="@item.CategoryId" title="View Details">
                         <img src="~/images/details.png" style="height:20px;width:20px;" />
                     </a>
                 </td>
                 <td>
-                    <a asp-action="Delete" asp-route-id="@item.CategoryId">
+                    <a asp-action="Delete" asp-route-id="@item.CategoryId" title="Delete Item">
                         <img src="~/images/delete.png" style="height:20px;width:20px;" />
                     </a>
                 </td>
@@ -58,3 +58,7 @@
 }
     </tbody>
 </table>
+<div>
+    @*<a asp-action="Sort">Sort Items</a>*@
+    <a asp-action="GetLatest">Get most recent category</a>
+</div>
