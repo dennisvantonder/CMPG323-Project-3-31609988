@@ -12,6 +12,7 @@ using DeviceManagement_WebApp.Repository;
 
 namespace DeviceManagement_WebApp.Controllers
 {
+    // Authorize key word used to implement security on controller
     [Authorize]
     public class CategoriesController : Controller
     {
@@ -22,13 +23,13 @@ namespace DeviceManagement_WebApp.Controllers
             _categoryRepository = categoryRepository;
         }
 
-        // GET: Categories
+        // GET: Categories - returns all items from the catgories table
         public async Task<IActionResult> Index()
         {
             return View(_categoryRepository.GetAll());
         }
 
-        // GET: Categories/Details/5
+        // GET: Categories/Details/5 - returns 1 category
         public async Task<IActionResult> Details(Guid id)
         {
             var category = GetCategory(id);
@@ -40,13 +41,13 @@ namespace DeviceManagement_WebApp.Controllers
             return View(category);
         }
 
-        // GET: Categories/Create
+        // GET: Categories/Create - opens create view to add a new category
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Categories/Create
+        // POST: Categories/Create - Creates new category from user input
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -59,7 +60,7 @@ namespace DeviceManagement_WebApp.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        // GET: Categories/Edit/5
+        // GET: Categories/Edit/5 - returns edit view to user to edit a category
         public async Task<IActionResult> Edit(Guid id)
         {
             var category = GetCategory(id);
@@ -71,7 +72,7 @@ namespace DeviceManagement_WebApp.Controllers
             return View(category);
         }
 
-        // POST: Categories/Edit/5
+        // POST: Categories/Edit/5 - updates a category
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -101,7 +102,7 @@ namespace DeviceManagement_WebApp.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        // GET: Categories/Delete/5
+        // GET: Categories/Delete/5 - returns delete view to user to delete a category
         public async Task<IActionResult> Delete(Guid id)
         {
             var category = GetCategory(id);
@@ -113,7 +114,7 @@ namespace DeviceManagement_WebApp.Controllers
             return View(category);
         }
 
-        // POST: Categories/Delete/5
+        // POST: Categories/Delete/5 - delete a category
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(Guid id)
@@ -124,11 +125,13 @@ namespace DeviceManagement_WebApp.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        // Method checks if a category exists
         private bool CategoryExists(Guid id)
         {
             return _categoryRepository.Exists(e => e.CategoryId == id);
         }
 
+        // Method is used to get a category by id (used method to simplify code and for DRY principle)
         private Category GetCategory(Guid id)
         {
             var cat = _categoryRepository.GetById(id);
@@ -140,12 +143,14 @@ namespace DeviceManagement_WebApp.Controllers
                 return cat;
         }
 
-        public IActionResult Sort()
+        // Sorts the categories in ascending order
+        public async Task<IActionResult> Sort()
         {
             return View(_categoryRepository.Sort(e => e.CategoryName));
         }
 
-        public IActionResult GetRecent()
+        // Gets the most recent item of categories by looking at the dat created and returns a new view
+        public async Task<IActionResult> GetRecent()
         {
             return View(_categoryRepository.GetMostRecentCategory());
         }
