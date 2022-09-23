@@ -13,7 +13,7 @@ namespace DeviceManagement_WebApp.Repository
         // Gets all items from a table
         IEnumerable<T> GetAll();
 
-        // Finds items based on an expression passed through (currently not implemented)
+        // Finds items based on an expression passed through
         T Find(Expression<Func<T, bool>> expression);
 
         // Adds a new item

@@ -6,13 +6,15 @@ namespace DeviceManagement_WebApp.Repository
 {
     public class ZoneRepository : GenericRepository<Zone>, IZoneRepository
     {
+        // Zone repository
         public ZoneRepository(ConnectedOfficeContext context) : base(context)
         {
         }
 
-        /*public Zone GetMostRecentZone()
+        // Gets most recently added zone
+        public Zone GetMostRecentZone()
         {
             return _context.Zone.OrderByDescending(zone => zone.DateCreated).FirstOrDefault();
-        }*/
+        }
     }
 }

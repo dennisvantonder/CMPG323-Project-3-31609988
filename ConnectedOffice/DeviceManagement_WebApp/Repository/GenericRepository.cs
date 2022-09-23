@@ -35,7 +35,7 @@ namespace DeviceManagement_WebApp.Repository
             _context.Set<T>().AddRange(entities);
         }
 
-        // Finds items based on an expression passed through (currently not implemented)
+        // Finds items based on an expression passed through
         public T Find(Expression<Func<T, bool>> expression)
         {
             return _context.Set<T>().FirstOrDefault(expression);
