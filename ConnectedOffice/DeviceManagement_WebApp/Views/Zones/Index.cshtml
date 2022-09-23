@@ -6,7 +6,7 @@
 
 <h1>
     Zones
-    <a asp-action="Create">
+    <a asp-action="Create" title="Create new Zone">
         <img src="~/images/create.png" style="height:30px; width:30px; position:relative; top:-2px" />
     </a>
 </h1>
@@ -24,8 +24,16 @@
                 @Html.DisplayNameFor(model => model.DateCreated)
             </th>
             <th></th>
-            <th></th>
-            <th></th>
+            <th>
+                <a title="Recent Zone" onclick="location.href='@Url.Action("GetRecent","Zones")'">
+                    <img src="~/images/recent.png" style="height:20px;width:20px;" />
+                </a>
+            </th>
+            <th>
+                <a title="Sort Zones" onclick="location.href='@Url.Action("Sort","Zones")'">
+                    <img src="~/images/sort.png" style="height:20px;width:20px;" />
+                </a>
+            </th>
         </tr>
     </thead>
     <tbody>
@@ -42,17 +50,17 @@
                     @Html.DisplayFor(modelItem => item.DateCreated)
                 </td>
                 <td>
-                    <a asp-action="Edit" asp-route-id="@item.ZoneId">
+                    <a asp-action="Edit" asp-route-id="@item.ZoneId" title="Edit Zone">
                         <img src="~/images/edit.png" style="height:20px;width:20px;" />
                     </a>
                 </td>
                 <td>
-                    <a asp-action="Details" asp-route-id="@item.ZoneId">
+                    <a asp-action="Details" asp-route-id="@item.ZoneId" title="View Details">
                         <img src="~/images/details.png" style="height:20px;width:20px;" />
                     </a>
                 </td>
                 <td>
-                    <a asp-action="Delete" asp-route-id="@item.ZoneId">
+                    <a asp-action="Delete" asp-route-id="@item.ZoneId" title="Delete Zone">
                         <img src="~/images/delete.png" style="height:20px;width:20px;" />
                     </a>
                 </td>
