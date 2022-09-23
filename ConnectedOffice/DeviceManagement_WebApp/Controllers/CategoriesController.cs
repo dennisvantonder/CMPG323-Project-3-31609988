@@ -154,5 +154,20 @@ namespace DeviceManagement_WebApp.Controllers
         {
             return View(_categoryRepository.GetMostRecentCategory());
         }
+
+        public IActionResult Search()
+        {
+            return View();
+        }
+
+        public async Task<IActionResult> SearchView([Bind("CategoryName")] Category category)
+        {
+            var c = _categoryRepository.Find(e => e.CategoryName == category.CategoryName);
+            if (c == null)
+            {
+                return NotFound();
+            }
+            return View(c);
+        }
     }
 }

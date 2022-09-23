@@ -36,9 +36,9 @@ namespace DeviceManagement_WebApp.Repository
         }
 
         // Finds items based on an expression passed through (currently not implemented)
-        public IEnumerable<T> Find(Expression<Func<T, bool>> expression)
+        public T Find(Expression<Func<T, bool>> expression)
         {
-            return _context.Set<T>().Where(expression);
+            return _context.Set<T>().FirstOrDefault(expression);
         }
 
         // Gets all items from a table

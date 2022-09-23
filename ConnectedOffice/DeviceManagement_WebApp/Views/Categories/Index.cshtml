@@ -22,7 +22,11 @@
             <th>
                 @Html.DisplayNameFor(model => model.DateCreated)
             </th>
-            <th></th>
+            <th>
+                <a title="Search for a Category" onclick="location.href='@Url.Action("Search","Categories")'">
+                    <img src="~/images/search.png" style="height:20px;width:20px;" />
+                </a>
+            </th>
             <th>
                 <a title="Recent Category" onclick="location.href='@Url.Action("GetRecent","Categories")'">
                     <img src="~/images/recent.png" style="height:20px;width:20px;" />

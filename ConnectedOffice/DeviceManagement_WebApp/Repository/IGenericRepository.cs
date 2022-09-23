@@ -14,7 +14,7 @@ namespace DeviceManagement_WebApp.Repository
         IEnumerable<T> GetAll();
 
         // Finds items based on an expression passed through (currently not implemented)
-        IEnumerable<T> Find(Expression<Func<T, bool>> expression);
+        T Find(Expression<Func<T, bool>> expression);
 
         // Adds a new item
         void Add(T entity);
