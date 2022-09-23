@@ -65,5 +65,10 @@ namespace DeviceManagement_WebApp.Repository
         {
             return _context.Set<T>().Any(expression);
         }
+
+        public IEnumerable<T> Sort(Expression<Func<T, string>> expression)
+        {
+            return _context.Set<T>().OrderBy(expression);
+        }
     }
 }

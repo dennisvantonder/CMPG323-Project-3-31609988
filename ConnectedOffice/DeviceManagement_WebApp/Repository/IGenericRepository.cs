@@ -16,5 +16,6 @@ namespace DeviceManagement_WebApp.Repository
         void RemoveRange(IEnumerable<T> entities);
         void Save();
         bool Exists(Expression<Func<T, bool>> expression);
+        IEnumerable<T> Sort(Expression<Func<T, string>> expression);
     }
 }

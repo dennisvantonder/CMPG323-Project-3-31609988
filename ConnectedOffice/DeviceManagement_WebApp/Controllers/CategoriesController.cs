@@ -139,5 +139,15 @@ namespace DeviceManagement_WebApp.Controllers
             else
                 return cat;
         }
+
+        public IActionResult Sort()
+        {
+            return View(_categoryRepository.Sort(e => e.CategoryName));
+        }
+
+        public IActionResult GetRecent()
+        {
+            return View(_categoryRepository.GetMostRecentCategory());
+        }
     }
 }

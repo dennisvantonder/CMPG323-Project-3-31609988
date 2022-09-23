@@ -23,14 +23,10 @@
                 @Html.DisplayNameFor(model => model.DateCreated)
             </th>
             <th></th>
+            <th></th>
             <th>
-                <a title="Recent item" onclick="location.href='@Url.Action("GetRecent","Categories")'">
-                    <img src="~/images/recent.png" style="height:20px;width:20px;" />
-                </a>
-            </th>
-            <th>
-                <a title="Sort items" onclick="location.href='@Url.Action("Sort","Categories")'">
-                    <img src="~/images/sort.png" style="height:20px;width:20px;" />
+                <a title="Home page for categories" onclick="location.href='@Url.Action("Index","Categories")'">
+                    <img src="~/images/homeIcon.png" style="height:20px;width:20px;" />
                 </a>
             </th>
         </tr>
