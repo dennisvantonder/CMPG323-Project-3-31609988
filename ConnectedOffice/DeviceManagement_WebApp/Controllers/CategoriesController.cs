@@ -35,7 +35,7 @@ namespace DeviceManagement_WebApp.Controllers
             var category = GetCategory(id);
             if (category == null)
             {
-                return NotFound();
+                return RedirectToAction(nameof(Error));
             }
 
             return View(category);
@@ -66,7 +66,7 @@ namespace DeviceManagement_WebApp.Controllers
             var category = GetCategory(id);
             if (category == null)
             {
-                return NotFound();
+                return RedirectToAction(nameof(Error));
             }
 
             return View(category);
@@ -81,7 +81,7 @@ namespace DeviceManagement_WebApp.Controllers
         {
             if (id != category.CategoryId)
             {
-                return NotFound();
+                return RedirectToAction(nameof(Error));
             }
             try
             {
@@ -92,7 +92,7 @@ namespace DeviceManagement_WebApp.Controllers
             {
                 if (!CategoryExists(category.CategoryId))
                 {
-                    return NotFound();
+                    return RedirectToAction(nameof(Error));
                 }
                 else
                 {
@@ -108,7 +108,7 @@ namespace DeviceManagement_WebApp.Controllers
             var category = GetCategory(id);
             if (category == null)
             {
-                return NotFound();
+                return RedirectToAction(nameof(Error));
             }
 
             return View(category);
@@ -153,6 +153,29 @@ namespace DeviceManagement_WebApp.Controllers
         public async Task<IActionResult> GetRecent()
         {
             return View(_categoryRepository.GetMostRecentCategory());
+        }
+
+        // opens search page
+        public IActionResult Search()
+        {
+            return View();
+        }
+
+        // opens error not found page
+        public IActionResult Error()
+        {
+            return View();
+        }
+
+        // returns a category from a category name else not found
+        public async Task<IActionResult> SearchView([Bind("CategoryName")] Category category)
+        {
+            var c = _categoryRepository.Find(e => e.CategoryName == category.CategoryName);
+            if (c == null)
+            {
+                return RedirectToAction(nameof(Error));
+            }
+            return View(c);
         }
     }
 }

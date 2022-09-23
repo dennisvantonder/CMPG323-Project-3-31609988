@@ -35,10 +35,10 @@ namespace DeviceManagement_WebApp.Repository
             _context.Set<T>().AddRange(entities);
         }
 
-        // Finds items based on an expression passed through (currently not implemented)
-        public IEnumerable<T> Find(Expression<Func<T, bool>> expression)
+        // Finds items based on an expression passed through
+        public T Find(Expression<Func<T, bool>> expression)
         {
-            return _context.Set<T>().Where(expression);
+            return _context.Set<T>().FirstOrDefault(expression);
         }
 
         // Gets all items from a table
