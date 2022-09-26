@@ -1,6 +1,7 @@
 ﻿using DeviceManagement_WebApp.Models;
 using System;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 
 namespace DeviceManagement_WebApp.Repository
 {
@@ -21,5 +22,8 @@ namespace DeviceManagement_WebApp.Repository
 
         // returns the category
         public IEnumerable<Category> GetCategory();
+
+        // sort devices (overload method as sort in generic repository does not include functionality for Joins)
+        public IEnumerable<Device> SortDevices(Expression<Func<Device, string>> expression);
     }
 }

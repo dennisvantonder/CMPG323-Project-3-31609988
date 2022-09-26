@@ -140,6 +140,11 @@ namespace DeviceManagement_WebApp.Controllers
             return View(_deviceRepository.GetMostRecentDevice());
         }
 
+        public async Task<IActionResult> Sort()
+        {
+            return View(_deviceRepository.SortDevices(e => e.DeviceName));
+        }
+
         private bool DeviceExists(Guid id)
         {
             return _deviceRepository.Exists(e => e.DeviceId == id);
