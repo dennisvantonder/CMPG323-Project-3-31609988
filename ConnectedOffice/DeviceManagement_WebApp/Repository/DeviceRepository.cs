@@ -19,7 +19,7 @@ namespace DeviceManagement_WebApp.Repository
         // Gets the most recent device that was added
         public Device GetMostRecentDevice()
         {
-            return _context.Device.OrderByDescending(device => device.DateCreated).FirstOrDefault();
+            return _context.Device.Include(d => d.Category).Include(d => d.Zone).OrderByDescending(device => device.DateCreated).FirstOrDefault();
         }
 
         // Gets all devices (is different from generic method as the device table requires joins)
