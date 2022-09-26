@@ -54,5 +54,11 @@ namespace DeviceManagement_WebApp.Repository
         {
             return _context.Device.Include(d => d.Category).Include(d => d.Zone).OrderBy(expression);
         }
+
+        // find device method
+        public Device FindDevice(Expression<Func<Device, bool>> expression)
+        {
+            return _context.Device.Include(d => d.Category).Include(d => d.Zone).FirstOrDefault(expression);
+        }
     }
 }

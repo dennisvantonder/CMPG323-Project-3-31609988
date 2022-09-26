@@ -12,6 +12,7 @@ using DeviceManagement_WebApp.Repository;
 
 namespace DeviceManagement_WebApp.Controllers
 {
+    // Authorize key word used to implement security
     [Authorize]
     public class DevicesController : Controller
     {
@@ -22,14 +23,14 @@ namespace DeviceManagement_WebApp.Controllers
             _deviceRepository = deviceRepository;
         }
 
-        // GET: Devices
+        // GET: Devices - returns all items from device table
         public async Task<IActionResult> Index()
         {
             var device = _deviceRepository.GetAllDevices();
             return View(device);
         }
 
-        // GET: Devices/Details/5
+        // GET: Devices/Details/5 - returns 1 device
         public async Task<IActionResult> Details(Guid id)
         {
             var device = getDevice(id);
@@ -41,7 +42,7 @@ namespace DeviceManagement_WebApp.Controllers
             return View(device);
         }
 
-        // GET: Devices/Create
+        // GET: Devices/Create - opens create view to add a new device
         public IActionResult Create()
         {
             ViewData["CategoryId"] = new SelectList(_deviceRepository.GetCategory(), "CategoryId", "CategoryName");
@@ -49,7 +50,7 @@ namespace DeviceManagement_WebApp.Controllers
             return View();
         }
 
-        // POST: Devices/Create
+        // POST: Devices/Create - creates a new device from user input
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -62,7 +63,7 @@ namespace DeviceManagement_WebApp.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        // GET: Devices/Edit/5
+        // GET: Devices/Edit/5 - returns edit view to let user edit a device
         public async Task<IActionResult> Edit(Guid id)
         {
             if (id == null)
@@ -81,7 +82,7 @@ namespace DeviceManagement_WebApp.Controllers
             return View(device);
         }
 
-        // POST: Devices/Edit/5
+        // POST: Devices/Edit/5 - updates a device
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -112,7 +113,7 @@ namespace DeviceManagement_WebApp.Controllers
 
         }
 
-        // GET: Devices/Delete/5
+        // GET: Devices/Delete/5 - returns delete view to user
         public async Task<IActionResult> Delete(Guid id)
         {
             var device = getDevice(id);
@@ -124,7 +125,7 @@ namespace DeviceManagement_WebApp.Controllers
             return View(device);
         }
 
-        // POST: Devices/Delete/5
+        // POST: Devices/Delete/5 - deletes a device
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(Guid id)
@@ -135,21 +136,48 @@ namespace DeviceManagement_WebApp.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        // gets recent device added
         public async Task<IActionResult> GetRecent()
         {
             return View(_deviceRepository.GetMostRecentDevice());
         }
 
+        // sort devices on device name
         public async Task<IActionResult> Sort()
         {
             return View(_deviceRepository.SortDevices(e => e.DeviceName));
         }
 
+        // returns search view to user to search for a device
+        public IActionResult Search()
+        {
+            return View();
+        }
+
+        // opens error view
+        public IActionResult Error()
+        {
+            return View();
+        }
+
+        // search for a device
+        public async Task<IActionResult> SearchView([Bind("DeviceName")] Device device)
+        {
+            var d = _deviceRepository.FindDevice(e => e.DeviceName == device.DeviceName);
+            if (d == null)
+            {
+                return RedirectToAction(nameof(Error));
+            }
+            return View(d);
+        }
+
+        // checks if a device exists
         private bool DeviceExists(Guid id)
         {
             return _deviceRepository.Exists(e => e.DeviceId == id);
         }
 
+        // gets a device
         private Device getDevice(Guid id)
         {
             var device = _deviceRepository.GetDeviceDetails(id);

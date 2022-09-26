@@ -1,4 +1,5 @@
 ﻿using DeviceManagement_WebApp.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
@@ -25,5 +26,8 @@ namespace DeviceManagement_WebApp.Repository
 
         // sort devices (overload method as sort in generic repository does not include functionality for Joins)
         public IEnumerable<Device> SortDevices(Expression<Func<Device, string>> expression);
+
+        // find device overload method
+        public Device FindDevice(Expression<Func<Device, bool>> expression);
     }
 }
