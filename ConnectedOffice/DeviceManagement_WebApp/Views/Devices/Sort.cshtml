@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<DeviceManagement_WebApp.Models.Device>
 
 @{
-    ViewData["Title"] = "Devices";
+    ViewData["Title"] = "Sort Devices";
 }
 
 <h1>Devices
@@ -31,21 +31,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.Zone)
             </th>
-            <th>
-                <a title="Search for a Device" onclick="location.href='@Url.Action("Search","Devices")'">
-                    <img src="~/images/search.png" style="height:20px;width:20px;" />
-                </a>
-            </th>
-            <th>
-                <a title="Recent Device" onclick="location.href='@Url.Action("GetRecent","Devices")'">
-                    <img src="~/images/recent.png" style="height:20px;width:20px;" />
-                </a>
-            </th>
-            <th>
-                <a title="Sort Devices" onclick="location.href='@Url.Action("Sort","Devices")'">
-                    <img src="~/images/sort.png" style="height:20px;width:20px;" />
-                </a>
-            </th>
+            <th></th>
+            <th></th>
+            <th></th>
         </tr>
     </thead>
     <tbody>

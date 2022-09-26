@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text.RegularExpressions;
 
 namespace DeviceManagement_WebApp.Repository
@@ -19,7 +20,7 @@ namespace DeviceManagement_WebApp.Repository
         // Gets the most recent device that was added
         public Device GetMostRecentDevice()
         {
-            return _context.Device.OrderByDescending(device => device.DateCreated).FirstOrDefault();
+            return _context.Device.Include(d => d.Category).Include(d => d.Zone).OrderByDescending(device => device.DateCreated).FirstOrDefault();
         }
 
         // Gets all devices (is different from generic method as the device table requires joins)
@@ -46,6 +47,18 @@ namespace DeviceManagement_WebApp.Repository
         public IEnumerable<Category> GetCategory()
         {
             return _context.Category;
+        }
+
+        // sort devices (overload method as sort in generic repository does not include functionality for Joins)
+        public IEnumerable<Device> SortDevices(Expression<Func<Device, string>> expression)
+        {
+            return _context.Device.Include(d => d.Category).Include(d => d.Zone).OrderBy(expression);
+        }
+
+        // find device method
+        public Device FindDevice(Expression<Func<Device, bool>> expression)
+        {
+            return _context.Device.Include(d => d.Category).Include(d => d.Zone).FirstOrDefault(expression);
         }
     }
 }
