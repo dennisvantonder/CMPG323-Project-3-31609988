@@ -34,7 +34,7 @@ namespace DeviceManagement_WebApp.Controllers
             var zone = getZone(id);
             if (zone == null)
             {
-                return NotFound();
+                return RedirectToAction(nameof(Error));
             }
 
             return View(zone);
@@ -65,7 +65,7 @@ namespace DeviceManagement_WebApp.Controllers
             var zone = getZone(id);
             if (zone == null)
             {
-                return NotFound();
+                return RedirectToAction(nameof(Error));
             }
             return View(zone);
         }
@@ -79,7 +79,7 @@ namespace DeviceManagement_WebApp.Controllers
         {
             if (id != zone.ZoneId)
             {
-                return NotFound();
+                return RedirectToAction(nameof(Error));
             }
 
             try
@@ -91,7 +91,7 @@ namespace DeviceManagement_WebApp.Controllers
             {
                 if (!ZoneExists(zone.ZoneId))
                 {
-                    return NotFound();
+                    return RedirectToAction(nameof(Error));
                 }
                 else
                 {
@@ -108,7 +108,7 @@ namespace DeviceManagement_WebApp.Controllers
             var zone = getZone(id);
             if (zone == null)
             {
-                return NotFound();
+                return RedirectToAction(nameof(Error));
             }
 
             return View(zone);
@@ -133,6 +133,24 @@ namespace DeviceManagement_WebApp.Controllers
         public IActionResult Sort()
         {
             return View(_zoneRepository.Sort(e => e.ZoneName));
+        }
+
+        public IActionResult Error()
+        {
+            return View();
+        }
+
+        public IActionResult Search()
+        {
+            return View();
+        }
+
+        public IActionResult SearchView([Bind("ZoneName")] Zone zone)
+        {
+            var z = _zoneRepository.Find(e => e.ZoneName == zone.ZoneName);
+            if (z == null)
+                RedirectToAction(nameof(Error));
+            return View(z);
         }
 
         private bool ZoneExists(Guid id)

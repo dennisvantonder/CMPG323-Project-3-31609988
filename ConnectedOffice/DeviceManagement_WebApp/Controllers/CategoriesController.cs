@@ -20,7 +20,6 @@ namespace DeviceManagement_WebApp.Controllers
 
         public CategoriesController(ICategoryRepository categoryRepository)
         {
-            // test
             _categoryRepository = categoryRepository;
         }
 
