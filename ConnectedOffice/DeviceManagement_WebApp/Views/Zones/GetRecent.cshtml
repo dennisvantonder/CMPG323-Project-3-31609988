@@ -1,25 +1,25 @@
-﻿@model DeviceManagement_WebApp.Models.Category
+﻿@model DeviceManagement_WebApp.Models.Zone
 
 @{
-    ViewData["Title"] = "Recent Category";
+    ViewData["Title"] = "Recent Zone";
 }
 
-<h1>Most recent category added</h1>
+<h1>Most recent zone added</h1>
 <hr />
 
 <div>
     <dl class="row">
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.CategoryName)
+            @Html.DisplayNameFor(model => model.ZoneName)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CategoryName)
+            @Html.DisplayFor(model => model.ZoneName)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.CategoryDescription)
+            @Html.DisplayNameFor(model => model.ZoneDescription)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CategoryDescription)
+            @Html.DisplayFor(model => model.ZoneDescription)
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.DateCreated)

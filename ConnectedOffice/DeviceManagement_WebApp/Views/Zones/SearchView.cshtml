@@ -1,0 +1,54 @@
+﻿@model DeviceManagement_WebApp.Models.Zone
+
+@{
+    ViewData["Title"] = "Sort Zones";
+}
+
+<h1>Zone:</h1>
+<hr />
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ZoneName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ZoneDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateCreated)
+            </th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => modelItem.ZoneName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => modelItem.ZoneDescription)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => modelItem.DateCreated)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@Model.ZoneId" title="Edit Zone">
+                        <img src="~/images/edit.png" style="height:20px;width:20px;" />
+                    </a>
+                </td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@Model.ZoneId" title="View Details">
+                        <img src="~/images/details.png" style="height:20px;width:20px;" />
+                    </a>
+                </td>
+                <td>
+                    <a asp-action="Delete" asp-route-id="@Model.ZoneId" title="Delete Zone">
+                        <img src="~/images/delete.png" style="height:20px;width:20px;" />
+                    </a>
+                </td>
+            </tr>
+    </tbody>
+</table>
