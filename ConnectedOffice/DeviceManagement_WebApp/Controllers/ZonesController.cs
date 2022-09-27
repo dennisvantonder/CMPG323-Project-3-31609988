@@ -155,6 +155,11 @@ namespace DeviceManagement_WebApp.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        public async Task<IActionResult> GetRecent()
+        {
+            return View(_zoneRepository.GetMostRecentZone());
+        }
+
         private bool ZoneExists(Guid id)
         {
             // return _context.Zone.Any(e => e.ZoneId == id);
