@@ -35,5 +35,24 @@ To delete a device, click on delete:
 ![image](https://user-images.githubusercontent.com/90188915/192720191-d0106719-bdf9-4d34-96b4-7c0d20af7117.png)
 
 To get back to the view with all the data, click on Back to list.
+### Extra functionality:
+To search, get recent and sort items click on on of the following icons:
+![image](https://user-images.githubusercontent.com/90188915/192721306-0298289d-a3f3-4641-a877-348204928d04.png)
+
+To search for a device click on the spy glass and then enter the name of the device you are looking for
+![image](https://user-images.githubusercontent.com/90188915/192721498-2e22327a-4b71-4371-9945-fd932d228a5b.png)
+
+If the item can not be found the following screen will be shown:
+![image](https://user-images.githubusercontent.com/90188915/192721706-273b00c0-9529-4fdb-8700-cac51e4892dc.png)
+
+If the device you searched for is found you will see the following 
+![image](https://user-images.githubusercontent.com/90188915/192721889-d88ebb14-c20e-4acf-be8f-ad408543b040.png)
+
+To see the most recent item that was added click on the clock icon
+![image](https://user-images.githubusercontent.com/90188915/192722068-49015dd3-2ee1-40ac-85d9-29ae647b063e.png)
+
+To sort the data click on the sort icon, the data will then be sorted in ascending order
+![image](https://user-images.githubusercontent.com/90188915/192722271-754f322b-5f98-4fe2-b986-f8bea6c4d0e1.png)
+
 ## References:
 
