@@ -18,11 +18,13 @@ namespace DeviceManagement_WebApp.Controllers
             _logger = logger;
         }
 
+        // shows the home page
         public IActionResult Index()
         {
             return View();
         }
 
+        // shows privacy page
         public IActionResult Privacy()
         {
             return View();

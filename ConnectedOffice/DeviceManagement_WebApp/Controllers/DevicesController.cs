@@ -18,20 +18,20 @@ namespace DeviceManagement_WebApp.Controllers
     {
         private readonly IDeviceRepository _deviceRepository;
 
-        public DevicesController(/*ConnectedOfficeContext context,*/ IDeviceRepository deviceRepository)
+        public DevicesController(IDeviceRepository deviceRepository)
         {
             _deviceRepository = deviceRepository;
         }
 
         // GET: Devices - returns all items from device table
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
             var device = _deviceRepository.GetAllDevices();
             return View(device);
         }
 
         // GET: Devices/Details/5 - returns 1 device
-        public async Task<IActionResult> Details(Guid id)
+        public IActionResult Details(Guid id)
         {
             var device = getDevice(id);
             if (device == null)
@@ -55,7 +55,7 @@ namespace DeviceManagement_WebApp.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("DeviceId,DeviceName,CategoryId,ZoneId,Status,IsActive,DateCreated")] Device device)
+        public IActionResult Create([Bind("DeviceId,DeviceName,CategoryId,ZoneId,Status,IsActive,DateCreated")] Device device)
         {
             device.DeviceId = Guid.NewGuid();
             _deviceRepository.Add(device);
@@ -64,7 +64,7 @@ namespace DeviceManagement_WebApp.Controllers
         }
 
         // GET: Devices/Edit/5 - returns edit view to let user edit a device
-        public async Task<IActionResult> Edit(Guid id)
+        public IActionResult Edit(Guid id)
         {
             if (id == null)
             {
@@ -87,7 +87,7 @@ namespace DeviceManagement_WebApp.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Guid id, [Bind("DeviceId,DeviceName,CategoryId,ZoneId,Status,IsActive,DateCreated")] Device device)
+        public IActionResult Edit(Guid id, [Bind("DeviceId,DeviceName,CategoryId,ZoneId,Status,IsActive,DateCreated")] Device device)
         {
             if (id != device.DeviceId)
             {
@@ -114,7 +114,7 @@ namespace DeviceManagement_WebApp.Controllers
         }
 
         // GET: Devices/Delete/5 - returns delete view to user
-        public async Task<IActionResult> Delete(Guid id)
+        public IActionResult Delete(Guid id)
         {
             var device = getDevice(id);
             if (device == null)
@@ -128,7 +128,7 @@ namespace DeviceManagement_WebApp.Controllers
         // POST: Devices/Delete/5 - deletes a device
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(Guid id)
+        public IActionResult DeleteConfirmed(Guid id)
         {
             var device = _deviceRepository.GetById(id);
             _deviceRepository.Remove(device);
@@ -137,13 +137,13 @@ namespace DeviceManagement_WebApp.Controllers
         }
 
         // gets recent device added
-        public async Task<IActionResult> GetRecent()
+        public IActionResult GetRecent()
         {
             return View(_deviceRepository.GetMostRecentDevice());
         }
 
         // sort devices on device name
-        public async Task<IActionResult> Sort()
+        public IActionResult Sort()
         {
             return View(_deviceRepository.SortDevices(e => e.DeviceName));
         }
@@ -161,7 +161,7 @@ namespace DeviceManagement_WebApp.Controllers
         }
 
         // search for a device
-        public async Task<IActionResult> SearchView([Bind("DeviceName")] Device device)
+        public IActionResult SearchView([Bind("DeviceName")] Device device)
         {
             var d = _deviceRepository.FindDevice(e => e.DeviceName == device.DeviceName);
             if (d == null)
