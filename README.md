@@ -14,8 +14,11 @@ From this page you can view the home screen, register a new account and log in. 
 Once registered you will be able to log in, click on login from the list and enter the email and password ![image](https://user-images.githubusercontent.com/90188915/192716612-b50092d6-846c-4e3a-aaad-6b09a7b610ba.png)
 
 If you have successfully logged in you will see the 3 tables from the list
+
 ![image](https://user-images.githubusercontent.com/90188915/192716945-9533248c-efb5-47d3-b646-443deef7f6ef.png)
-If you select any of the 3 tables you will se the following table with all of the data in that table ![image](https://user-images.githubusercontent.com/90188915/192717688-331f81b0-e64c-42f3-8382-6a2394f32487.png)
+
+If you select any of the 3 tables you will see the following table with all of the data in that table 
+![image](https://user-images.githubusercontent.com/90188915/192717688-331f81b0-e64c-42f3-8382-6a2394f32487.png)
 
 ## References:
 
