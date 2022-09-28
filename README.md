@@ -37,12 +37,14 @@ To delete a device, click on delete:
 To get back to the view with all the data, click on Back to list.
 ### Extra functionality:
 To search, get recent and sort items click on on of the following icons:
+
 ![image](https://user-images.githubusercontent.com/90188915/192721306-0298289d-a3f3-4641-a877-348204928d04.png)
 
 To search for a device click on the spy glass and then enter the name of the device you are looking for
 ![image](https://user-images.githubusercontent.com/90188915/192721498-2e22327a-4b71-4371-9945-fd932d228a5b.png)
 
 If the item can not be found the following screen will be shown:
+
 ![image](https://user-images.githubusercontent.com/90188915/192721706-273b00c0-9529-4fdb-8700-cac51e4892dc.png)
 
 If the device you searched for is found you will see the following 
