@@ -51,7 +51,7 @@ If the device you searched for is found you will see the following
 ![image](https://user-images.githubusercontent.com/90188915/192721889-d88ebb14-c20e-4acf-be8f-ad408543b040.png)
 
 To see the most recent item that was added click on the clock icon
-![image](https://user-images.githubusercontent.com/90188915/192722068-49015dd3-2ee1-40ac-85d9-29ae647b063e.png)
+![image](https://user-images.githubusercontent.com/90188915/192722674-6d1f679e-224b-4aaf-9090-2287af3688f9.png)
 
 To sort the data click on the sort icon, the data will then be sorted in ascending order
 ![image](https://user-images.githubusercontent.com/90188915/192722271-754f322b-5f98-4fe2-b986-f8bea6c4d0e1.png)
