@@ -20,5 +20,19 @@ If you have successfully logged in you will see the 3 tables from the list
 If you select any of the 3 tables you will see the following table with all of the data in that table 
 ![image](https://user-images.githubusercontent.com/90188915/192717688-331f81b0-e64c-42f3-8382-6a2394f32487.png)
 
+From this view you can click on the plus icon to add a new item, the trash can to delete an item, the pencil to edit an item and the eye to view the details of an item.
+Creating a new device, enter all the values and click create.
+![image](https://user-images.githubusercontent.com/90188915/192719511-b5d7e1ea-498f-40b5-9fda-709221ca5b91.png)
+
+Edit a device, enter new details and click on save.
+![image](https://user-images.githubusercontent.com/90188915/192719710-f6f5a3d9-b14e-4c86-9ad5-97703b5207c6.png)
+
+Viewing a device details:
+![image](https://user-images.githubusercontent.com/90188915/192719840-6c5a714c-0b95-488f-ad3c-3ff68b3f74fe.png)
+
+To delete a device, click on delete:
+![image](https://user-images.githubusercontent.com/90188915/192720191-d0106719-bdf9-4d34-96b4-7c0d20af7117.png)
+
+To get back to the view with all the data, click on Back to list.
 ## References:
 
