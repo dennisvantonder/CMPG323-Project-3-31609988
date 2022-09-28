@@ -24,13 +24,13 @@ namespace DeviceManagement_WebApp.Controllers
         }
 
         // GET: Categories - returns all items from the catgories table
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
             return View(_categoryRepository.GetAll());
         }
 
         // GET: Categories/Details/5 - returns 1 category
-        public async Task<IActionResult> Details(Guid id)
+        public IActionResult Details(Guid id)
         {
             var category = GetCategory(id);
             if (category == null)
@@ -52,7 +52,7 @@ namespace DeviceManagement_WebApp.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("CategoryId,CategoryName,CategoryDescription,DateCreated")] Category category)
+        public IActionResult Create([Bind("CategoryId,CategoryName,CategoryDescription,DateCreated")] Category category)
         {
             category.CategoryId = Guid.NewGuid();
             _categoryRepository.Add(category);
@@ -61,7 +61,7 @@ namespace DeviceManagement_WebApp.Controllers
         }
 
         // GET: Categories/Edit/5 - returns edit view to user to edit a category
-        public async Task<IActionResult> Edit(Guid id)
+        public IActionResult Edit(Guid id)
         {
             var category = GetCategory(id);
             if (category == null)
@@ -77,7 +77,7 @@ namespace DeviceManagement_WebApp.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Guid id, [Bind("CategoryId,CategoryName,CategoryDescription,DateCreated")] Category category)
+        public IActionResult Edit(Guid id, [Bind("CategoryId,CategoryName,CategoryDescription,DateCreated")] Category category)
         {
             if (id != category.CategoryId)
             {
@@ -103,7 +103,7 @@ namespace DeviceManagement_WebApp.Controllers
         }
 
         // GET: Categories/Delete/5 - returns delete view to user to delete a category
-        public async Task<IActionResult> Delete(Guid id)
+        public IActionResult Delete(Guid id)
         {
             var category = GetCategory(id);
             if (category == null)
@@ -117,7 +117,7 @@ namespace DeviceManagement_WebApp.Controllers
         // POST: Categories/Delete/5 - delete a category
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(Guid id)
+        public IActionResult DeleteConfirmed(Guid id)
         {
             var category = _categoryRepository.GetById(id);
             _categoryRepository.Remove(category);
@@ -144,13 +144,13 @@ namespace DeviceManagement_WebApp.Controllers
         }
 
         // Sorts the categories in ascending order
-        public async Task<IActionResult> Sort()
+        public IActionResult Sort()
         {
             return View(_categoryRepository.Sort(e => e.CategoryName));
         }
 
         // Gets the most recent item of categories by looking at the dat created and returns a new view
-        public async Task<IActionResult> GetRecent()
+        public IActionResult GetRecent()
         {
             return View(_categoryRepository.GetMostRecentCategory());
         }
@@ -168,7 +168,7 @@ namespace DeviceManagement_WebApp.Controllers
         }
 
         // returns a category from a category name else not found
-        public async Task<IActionResult> SearchView([Bind("CategoryName")] Category category)
+        public IActionResult SearchView([Bind("CategoryName")] Category category)
         {
             var c = _categoryRepository.Find(e => e.CategoryName == category.CategoryName);
             if (c == null)

@@ -17,10 +17,13 @@ namespace DeviceManagement_WebApp.Models
 
         [DisplayName("Zone ID")]
         public Guid ZoneId { get; set; }
+
         [DisplayName("Zone Name")]
         public string ZoneName { get; set; }
+
         [DisplayName("Zone Description")]
         public string ZoneDescription { get; set; }
+
         [DisplayName("Date Created")]
         public DateTime DateCreated { get; set; }
 
