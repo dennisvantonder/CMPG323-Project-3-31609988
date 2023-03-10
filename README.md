@@ -3,7 +3,7 @@ Author: [Dennis Van Tonder](https://github.com/dennisvantonder/)
 ## Subject: IT Developments
 The IT-environment changes at a fast pace. That is why we have a module with content regularly updated to keep up with newer developments in the IT-environment. The module is presented at the end of the degree to allow students to integrate their knowledge from other modules into this module. In the module, a series of projects are undertaken. Self-study and teamwork are important parts of these projects. These projects' goal is to expose the student to new IT challenges and appropriate technology to address these challenges. The development of soft skills is also part of the primary goal of this module.
 ## University project:
-This was is a continuation on [Project 2](https://github.com/dennisvantonder/CMPG-323-Project-2-31609988), this web application uses the API created in Project 2 to get the data. Mark I recieved for this project: 98%
+This was is a continuation on [Project 2](https://github.com/dennisvantonder/CMPG-323-Project-2-31609988), this web application uses the API created in Project 2 to get/post/update and delete data on the database which was hosted on Azure. Mark I recieved for this project: 98%
 ## Overview:
 This repository is about a web app that is used to manage Internet-of-Thing devices in a office, these devices all have a function in the office and a system is needed to manage these devices. The devices can be part of 1 zone and 1 category. 
 
